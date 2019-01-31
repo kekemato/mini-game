@@ -53,8 +53,9 @@ class Game {
             this.startGameInterval()
             this.deleteStartButton()
             this.createArrowButtons()
+            this.startListeningToArrows()
         })
-        this.startListeningToArrows()
+
         this.render()
     }
 
@@ -68,18 +69,16 @@ class Game {
 
         buttonLeft.innerText = '<--'
         buttonRight.innerText = '-->'
-
-        buttonLeft.setAttribute("class", "button button-left")
+         buttonLeft.setAttribute("class", "button button-left")
         buttonRight.setAttribute("class", "button button-right")
-
-        buttonLeft.addEventListener('click', () => this.checkIfMoveIsAvailable(-1, 0))
+         buttonLeft.addEventListener('click', () => this.checkIfMoveIsAvailable(-1, 0))
         buttonRight.addEventListener('click', () => this.checkIfMoveIsAvailable(1, 0))
-
-        this.buttonsContainer.appendChild(buttonLeft)
+         this.buttonsContainer.appendChild(buttonLeft)
         this.buttonsContainer.appendChild(buttonRight)
     }
 
     render() {
+
         const gameBoardContainer = document.querySelector('.game-board-container')
         gameBoardContainer.innerHTML = ''
 
@@ -102,11 +101,14 @@ class Game {
         cellDiv.style.width = '6vh'
         cellDiv.style.height = '6vh'
 
-        if (cell === 0) cellDiv.style.backgroundColor = 'green'
-        if (cell === 1) cellDiv.style.backgroundColor = 'rgb(242, 242, 242)'
-        if (cell === 'P') cellDiv.style.backgroundColor = 'rgb(242, 242, 242)'
-        if (cell === 'P') cellDiv.style.backgroundImage = "url('./img/car.png')"
-        if (cell === 'P') cellDiv.style.backgroundSize = "contain"
+        if (cell === 0) cellDiv.style.backgroundImage = "url('./img/snowmanf.png')"
+        if (cell === 1) cellDiv.style.backgroundColor = 'rgb(0, 255, 255)'
+        if (cell === 'P') cellDiv.style.backgroundColor = 'rgb(0, 255, 255)'
+        if (cell === 'P') cellDiv.style.backgroundImage = "url('./img/delorean3.png')"
+        if (cell === 'P') cellDiv.style.backgroundSize = "cover"
+        if (cell === 'P') cellDiv.style.backgroundColor = 'rgb(0, 255, 255)'
+        if (cell === 0) cellDiv.style.backgroundSize = "contain"
+        if (cell === 0) cellDiv.style.backgroundColor = 'rgb(0, 255, 255)'
 
         rowDiv.appendChild(cellDiv)
     }
